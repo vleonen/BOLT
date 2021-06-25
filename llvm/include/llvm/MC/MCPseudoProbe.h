@@ -152,6 +152,8 @@ public:
   }
 
   bool isCall() const { return isIndirectCall() || isDirectCall(); }
+
+  void setAttributes(uint8_t Attr) { Attributes = Attr; }
 };
 
 /// Instances of this class represent a pseudo probe instance for a pseudo probe
@@ -185,6 +187,8 @@ public:
         InlineTree(Tree){};
 
   uint64_t getAddress() const { return Address; }
+
+  void setAddress(uint64_t Addr) { Address = Addr; }
 
   MCDecodedPseudoProbeInlineTree *getInlineTreeNode() const {
     return InlineTree;
@@ -396,6 +400,8 @@ public:
   const AddressProbesMap &getAddress2ProbesMap() const {
     return Address2ProbesMap;
   }
+
+  AddressProbesMap &getAddress2ProbesMap() { return Address2ProbesMap; }
 
   const GUIDProbeFunctionMap &getGUID2FuncDescMap() const {
     return GUID2FuncDescMap;
