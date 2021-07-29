@@ -264,21 +264,21 @@ void reportNumber(const char *Msg, uint64_t Num, uint32_t Base) {
 
 void report(const char *Msg) { __write(2, Msg, strLen(Msg)); }
 
-unsigned long hexToLong(const char *str) {
-  unsigned long res = 0;
-  while (*str != '\0') {
-    res <<= 4;
-    if ('0' <= *str && *str <= '9')
-      res += *str++ - '0';
-    else if ('a' <= *str && *str <= 'f')
-      res += *str++ - 'a' + 10;
-    else if ('A' <= *str && *str <= 'F')
-      res += *str++ - 'A' + 10;
+unsigned long hexToLong(const char *Str) {
+  unsigned long Res = 0;
+  while (*Str != '\0') {
+    Res <<= 4;
+    if ('0' <= *Str && *Str <= '9')
+      Res += *Str++ - '0';
+    else if ('a' <= *Str && *Str <= 'f')
+      Res += *Str++ - 'a' + 10;
+    else if ('A' <= *Str && *Str <= 'F')
+      Res += *Str++ - 'A' + 10;
     else {
       return 0;
     }
   }
-  return res;
+  return Res;
 }
 
 #if !defined(__APPLE__)
